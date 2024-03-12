@@ -1,0 +1,157 @@
+{% extends 'main.html' %}
+{% load static  %}
+{% block content %}
+<style>
+    .borderWrapper {
+        border: 2px solid #3498db;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .borderWrapper h1 {
+        color: #2c3e50;
+        font-family: 'Arial', sans-serif;
+        font-size: 90px;
+        margin-bottom: 10px;
+    }
+
+    .buttonMobile {
+        margin-top: 20px;
+    }
+
+    .prev-btn,
+    .next-btn {
+        background-color: #3498db;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 15px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .btn a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn {
+        background-color: #3498db;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+    <div class="wrapper">
+        <!---
+            <div class="nav-dots">
+                <div class="nav-dot" data-slide="1">
+                    <div class="buttonText">GT</div>
+                </div>
+                <div class="nav-dot" data-slide="2">
+                    <div class="buttonText">G Wagon</div>
+                </div>
+                <div class="nav-dot" data-slide="3">
+                    <div class="buttonText">S Class</div>
+                </div>
+                <div class="nav-dot" data-slide="4">
+                    <div class="buttonText">C63</div>
+                </div>
+            </div>
+            --->
+            
+            {% for car in cars  %}
+            <div class="panel" data-slide="{{ car.id }}">
+                <div class="trans-layer" id="layer-{{ car.id }}"></div>
+                <section class="section" id="section-{{ car.id }}">
+                    <div class="section-content">
+                        <div class="grid-container">
+                            <!---------------------------------------------------------------------------->
+                            <div class="title">
+                               <img src =  "{% static 'E:\rental\rental\static\images\logomohan1.jpg'%}" style="width:900px; border-radius: 700px;">
+                            </div>
+                            <!---------------------------------------------------------------------------->
+
+                            <div class="time">
+                                <div class="timePOS">
+                                    <div class="container">
+                                        <div class="row no-gutters">
+                                            <div class="col-4">
+                                                <div class="borderWrapper">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!---------------------------------------------------------------------------->
+                            <div class="chose">
+                            
+                           
+                                    <div class="container-fluid buttonMobile">
+                                        <div class="row no-gutters h-100">
+                                            <div class="col-4 d-flex justify-content-center align-self-center">                                     
+                                                <div class="prev-btn ">
+                                                    <span class="fa fa-angle-up"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 d-flex justify-content-end align-self-center">
+                                                
+                                                    <button class="btn"><a href="">RENT IT NOW!</a></button>
+                                                     
+                                            </div>
+                                            <div class="col-4 d-flex justify-content-center align-self-center">
+                                                <div class="justDiv">
+                                                    <div class="next-btn">
+                                                        <span class="fa fa-angle-down"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <!---------------------------------------------------------------------------->
+                            <div class="car3">
+                                <div class="car3Wrapper">
+                                    <div class="car3Data">
+                                        <img src="{{  car.car2.url  }}" class="img-responsive"alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!---------------------------------------------------------------------------->
+                            <div class="link">8</div>
+                            <!---------------------------------------------------------------------------->
+                            <div class="petronas">
+                                {%  include 'bar.html' %}
+                               <div class="petronasLogo">
+                                <div class="container">
+                                    <div class="row ">
+                                        <div class="col-1"></div>
+                                        <div class="col-10 d-flex justify-content-center align-self-center">
+                                            <div class="petronsPic">
+                                                <img  src="{% static "images/logo.png" %}" class="img-responsive picPetro"alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-1"></div>
+                                    </div>
+                                </div>
+                               </div>
+                            </div>
+                            <!---------------------------------------------------------------------------->
+                        </div>
+                    </div>
+                </section>
+            </div> 
+        {% endfor  %}
+        
+    </div>
+    
+    {%  include 'login.html' %}
+{% endblock %}
+
